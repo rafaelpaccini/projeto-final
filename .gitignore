@@ -9,7 +9,7 @@ id_rsa_itau_treinamento*
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
-
+/home/ubuntu/projeto-final/00-infra-jenkins/0-terraform/.terraform/*
 # .tfstate files
 *.tfstate
 *.tfstate.*
