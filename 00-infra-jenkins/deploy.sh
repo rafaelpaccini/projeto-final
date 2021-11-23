@@ -15,7 +15,7 @@ echo "Aguardando criação de maquinas ..."
 sleep 20 # 20 segundos
 
 cd ../1-ansible
-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/aws/key01
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/.ssh/treinamentoitau_mauricio2.pem
 
 cd ../0-terraform
 terraform output

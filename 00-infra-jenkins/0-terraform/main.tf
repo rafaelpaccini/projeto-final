@@ -3,22 +3,26 @@ provider "aws" {
 }
 
 
-resource "aws_instance" "jenkins" {
-  subnet_id                   = "subnet-06efd40357f45eadf"
+resource "aws_instance" "jenkins-projeto-final" {
+  subnet_id                   = "subnet-013b710125e49d6a7"
   ami                         = "ami-0e66f5495b4efdd0f"
   instance_type               = "t2.large"
   associate_public_ip_address = true
-  key_name                    = "itau-treinamento"
-  tags = {
-    Name = "projeto-jenkins"
+  root_block_device {
+    encrypted   = true
+    volume_size = 60
   }
-  vpc_security_group_ids = ["${aws_security_group.jenkins.id}"]
+  key_name = "treinamentoitau_mauricio2"
+  tags = {
+    Name = "jenkins-projeto-final"
+  }
+  vpc_security_group_ids = ["${aws_security_group.secgroup-jenkins-projeto-final.id}"]
 }
 
-resource "aws_security_group" "jenkins" {
-  name        = "acessos_jenkins"
+resource "aws_security_group" "secgroup-jenkins-projeto-final" {
+  name        = "acessos_jenkins-projeto-final"
   description = "acessos_jenkins inbound traffic"
-  vpc_id      = "vpc-08eb8eaf23779e64b"
+  vpc_id      = "vpc-006b099589ba3289e"
   ingress = [
     {
       description      = "SSH from VPC"
@@ -67,10 +71,10 @@ resource "aws_security_group" "jenkins" {
 output "jenkins" {
   value = [
     "jenkins",
-    "id: ${aws_instance.jenkins.id}",
-    "private: ${aws_instance.jenkins.private_ip}",
-    "public: ${aws_instance.jenkins.public_ip}",
-    "public_dns: ${aws_instance.jenkins.public_dns}",
-    "ssh -i ~/aws/key01 ubuntu@${aws_instance.jenkins.public_dns}"
+    "id: ${aws_instance.jenkins-projeto-final.id}",
+    "private: ${aws_instance.jenkins-projeto-final.private_ip}",
+    "public: ${aws_instance.jenkins-projeto-final.public_ip}",
+    "public_dns: ${aws_instance.jenkins-projeto-final.public_dns}",
+    "ssh -i ~/.ssh/treinamentoitau_mauricio2.pem ubuntu@${aws_instance.jenkins-projeto-final.public_dns}"
   ]
 }

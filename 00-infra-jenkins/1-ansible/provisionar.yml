@@ -100,20 +100,20 @@
         name: mysql
         state: started
 
-    - name: "Criando senha teste mysql"
-      become: yes
-      mysql_user:
-        name: root
-        host: localhost
-        password: root
-        priv: "*.*:ALL,GRANT"
-        state: present
+    # - name: "Criando senha teste mysql"
+    #   become: yes
+    #   mysql_user:
+    #     name: root
+    #     host: localhost
+    #     password: root
+    #     priv: "*.*:ALL,GRANT"
+    #     state: present
   
     - name: "Cria o banco de dados MySQL"
       mysql_db:
         name: SpringWebYoutubeTest
-        login_user: projeto-teste
-        login_password: password-teste
+        login_user: root
+        login_password: root
         state: present
 
     - name: "clone projeto"
@@ -131,8 +131,8 @@
 
     - name: Copia chave private
       copy:
-        src: "/home/ubuntu/aws/key01"
-        dest: "/var/lib/jenkins/.ssh/key01"
+        src: "/home/ubuntu/.ssh/treinamentoitau_mauricio2.pem"
+        dest: "/var/lib/jenkins/treinamentoitau_mauricio2.pem"
         owner: jenkins
         group: jenkins
         mode: '0400'
