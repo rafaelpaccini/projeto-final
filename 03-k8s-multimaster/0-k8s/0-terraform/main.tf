@@ -18,7 +18,7 @@ resource "aws_instance" "k8s_proxy" {
   }
   
   tags = {
-    Name = "k8s-haproxy"
+    Name = "k8s-haproxy-projeto-final"
   }
   vpc_security_group_ids = [aws_security_group.acessos_haproxy.id]
 }
@@ -62,7 +62,7 @@ resource "aws_instance" "k8s_workers" {
 
 
 resource "aws_security_group" "acessos_masters" {
-  name        = "k8s-acessos_masters"
+  name        = "k8s-acessos_masters-projeto-final"
   description = "acessos inbound traffic"
   vpc_id = "vpc-006b099589ba3289e"
 
@@ -151,7 +151,7 @@ resource "aws_security_group" "acessos_masters" {
 }
 
 resource "aws_security_group" "acessos_haproxy" {
-  name        = "k8s-haproxy"
+  name        = "k8s-haproxy-projeto-final"
   description = "acessos inbound traffic"
   vpc_id = "vpc-006b099589ba3289e"
 
@@ -228,7 +228,7 @@ resource "aws_security_group" "acessos_haproxy" {
 }
 
 resource "aws_security_group" "acessos_workers" {
-  name        = "k8s-workers"
+  name        = "k8s-workers-projeto-final"
   description = "acessos inbound traffic"
   vpc_id = "vpc-006b099589ba3289e"
 
