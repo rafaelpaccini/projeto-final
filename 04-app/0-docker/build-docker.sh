@@ -7,4 +7,4 @@
 #### Pegando ultima tag do git #####
 tag=$(git describe --tags $(git rev-list --tags --max-count=1))
 echo "Fazendo deploy da tag $tag"
-docker build -t "projetofinal/spring-web-youtube:$tag" -f Dockerfile .
+docker build -t "projetofinal/spring-web-youtube:$tag" -f 04-app/0-docker/Dockerfile .
