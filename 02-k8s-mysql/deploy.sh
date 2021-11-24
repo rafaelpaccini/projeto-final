@@ -46,6 +46,6 @@ $ID_M2_DNS
 $ID_M3_DNS
 
 
-" > ..02-k8s-mysql/1-ansible/hosts
+" > ../02-k8s-mysql/1-ansible/hosts
 
 ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /var/lib/jenkins/treinamentoitau_mauricio2.pem
