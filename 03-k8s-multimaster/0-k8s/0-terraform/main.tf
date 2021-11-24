@@ -18,7 +18,7 @@ resource "aws_instance" "k8s_proxy" {
   }
   
   tags = {
-    Name = "k8s-haproxy-projeto-final"
+    Name = "k8s-haproxy"
   }
   vpc_security_group_ids = [aws_security_group.acessos_haproxy.id]
 }
