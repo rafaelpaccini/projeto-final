@@ -14,7 +14,7 @@ resource "aws_instance" "k8s_proxy" {
   associate_public_ip_address = true
   root_block_device {
     encrypted = true
-    volume_size = 8
+    volume_size = 60
   }
   
   tags = {
@@ -31,7 +31,7 @@ resource "aws_instance" "k8s_masters" {
   associate_public_ip_address = true
   root_block_device {
     encrypted = true
-    volume_size = 8
+    volume_size = 60
   }
   count         = 3
   tags = {
@@ -51,7 +51,7 @@ resource "aws_instance" "k8s_workers" {
   associate_public_ip_address = true
   root_block_device {
     encrypted = true
-    volume_size = 8
+    volume_size = 60
   }
   count         = 3
   tags = {
