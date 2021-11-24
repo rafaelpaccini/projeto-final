@@ -167,34 +167,34 @@ resource "aws_security_group" "acessos_haproxy" {
       security_groups: null,
       self: null
     },
-    # {
-    #   cidr_blocks      = []
-    #   description      = ""
-    #   from_port        = 0
-    #   ipv6_cidr_blocks = []
-    #   prefix_list_ids  = []
-    #   protocol         = "-1"
-    #   security_groups  = [
-    #     # aws_security_group.acessos_masters.id,
-    #     "sg-0256ab00a8d4d9846",
-    #   ]
-    #   self             = false
-    #   to_port          = 0
-    # },
-    # {
-    #   cidr_blocks      = []
-    #   description      = ""
-    #   from_port        = 0
-    #   ipv6_cidr_blocks = []
-    #   prefix_list_ids  = []
-    #   protocol         = "-1"
-    #   security_groups  = [
-    #     # aws_security_group.acessos_workers.id
-    #     "sg-0c9106f165a0f3252",
-    #   ]
-    #   self             = false
-    #   to_port          = 0
-    # },
+    {
+      cidr_blocks      = []
+      description      = ""
+      from_port        = 0
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "-1"
+      security_groups  = [
+        # aws_security_group.acessos_masters.id,
+        "sg-093008c8bd28b70c3",
+      ]
+      self             = false
+      to_port          = 0
+    },
+    {
+      cidr_blocks      = []
+      description      = ""
+      from_port        = 0
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "-1"
+      security_groups  = [
+        # aws_security_group.acessos_workers.id
+        "sg-070d67148a6770f4e",
+      ]
+      self             = false
+      to_port          = 0
+    },
     {
       cidr_blocks      = []
       description      = ""
