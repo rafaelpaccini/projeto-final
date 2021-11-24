@@ -1,0 +1,10 @@
+
+[ec2-mysql-dev]
+10.50.10.59
+[ec2-mysql-stage]
+10.50.10.86
+[ec2-mysql-prod]
+10.50.10.245
+
+
+

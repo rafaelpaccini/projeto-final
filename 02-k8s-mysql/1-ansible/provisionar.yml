@@ -1,0 +1,48 @@
+- hosts: all
+  become: true
+
+  tasks:
+    - name: "Roda: sudo apt-get update"
+      become: yes
+      apt:
+        upgrade: yes
+        update_cache: yes
+
+    - name: "Configura hostname mysql-projeto-final "
+      shell: hostname mysql-projeto-final && echo "mysql-projeto-final" > /etc/hostname
+      become: yes
+      
+    
+    - name: "Instala mysql"
+      apt:
+        name: "{{ item }}"
+        state: latest
+      become: yes # roda com sudo
+      with_items:
+        - mysql-server
+        - python3-pycurl
+        - python3-mysqldb
+    
+    - name: "Lavanta serviço do mysql"
+      become: yes
+      service:
+        name: mysql
+        state: started
+
+    - name: "Criando senha teste mysql"
+      become: yes
+      mysql_user:
+        name: root
+        host: localhost
+        password: root
+        priv: "*.*:ALL,GRANT"
+        state: present
+  
+    - name: "Cria o banco de dados MySQL"
+      mysql_db:
+        name: SpringWebYoutube
+        login_user: root
+        login_password: root
+        state: present 
+
+   
