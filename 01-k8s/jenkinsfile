@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                git url: 'https://github.com/rafaelpaccini/projeto-final', branch: 'main'
+            }
+        }
+        stage('Build EC2') {
+            steps {
+                sh "01-k8s/deploy.sh"
+            }
+        }
+        stage('Test K8s') {
+            steps {
+                sh "01-k8s/test.sh"
+            }
+        }
+        stage('Build AMI') {
+            steps {
+                sh "01-k8s/package-ami.sh"
+            }
+        }
+        stage('Destroy Test EC2') {
+            steps {
+                sh "01-k8s/destroy.sh"
+            }
+        }
+    }
+}

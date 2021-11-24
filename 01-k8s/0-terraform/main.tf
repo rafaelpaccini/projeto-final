@@ -68,7 +68,7 @@ resource "aws_security_group" "acesso-k8s-projeto-final" {
   ]
 
   tags = {
-    Name = "jenkins-dev-img-lab"
+    Name = "secgrp-img-k8s-projeto-final"
   }
 }
 
