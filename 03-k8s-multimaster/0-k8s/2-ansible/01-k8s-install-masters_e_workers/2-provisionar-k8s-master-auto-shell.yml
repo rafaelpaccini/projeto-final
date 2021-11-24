@@ -1,0 +1,35 @@
+- hosts:
+  - ec2-k8s-m2
+  - ec2-k8s-m3
+  become: yes
+  tasks:
+    - name: "Reset cluster"
+      shell: "kubeadm reset -f"
+    - name: "Fazendo join kubernetes master"
+      shell: kubeadm join k8s-haproxy:6443 --token e1jmdg.c57714dvmlimwtjb  --discovery-token-ca-cert-hash sha256:e97cf036199b4fd1f26d3cc966b5fac45733671ae573b7825d0b073f4b4a7885  --control-plane --certificate-key a9f5b755c7d618889b589dbc5e5b38947c34de284d93414d2ad9fa779279bb9e
+    - name: "Colocando no path da maquina o conf do kubernetes"
+      shell: mkdir -p /home/ubuntu/.kube && sudo cp -f /etc/kubernetes/admin.conf /home/ubuntu/.kube/config && sudo chown 1000:1000 /home/ubuntu/.kube/config && export KUBECONFIG=/etc/kubernetes/admin.conf
+#---
+- hosts:
+  - ec2-k8s-w1
+  - ec2-k8s-w2
+  - ec2-k8s-w3
+  become: yes
+  tasks:
+    - name: "Reset cluster"
+      shell: "kubeadm reset -f"
+    - name: "Fazendo join kubernetes worker"
+      shell: kubeadm join k8s-haproxy:6443 --token e1jmdg.c57714dvmlimwtjb  --discovery-token-ca-cert-hash sha256:e97cf036199b4fd1f26d3cc966b5fac45733671ae573b7825d0b073f4b4a7885 
+#---
+- hosts:
+  - ec2-k8s-m1
+  become: yes
+  tasks:
+    - name: "Configura weavenet para reconhecer os nós master e workers"
+      shell: kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+    - name: Espera 30 segundos
+      wait_for: timeout=30
+    - shell: kubectl get nodes -o wide
+      register: ps
+    - debug:
+        msg: " '{{ ps.stdout_lines }}' "
