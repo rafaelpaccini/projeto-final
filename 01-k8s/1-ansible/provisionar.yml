@@ -43,7 +43,7 @@
 
     - name: "Corrigindo docker para o kubernetes"
       copy:
-        src: "docker/daemon.json"
+        src: "01-k8s/docker/daemon.json"
         dest: "/etc/docker/daemon.json"
       become: yes
 
