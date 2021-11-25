@@ -54,3 +54,5 @@
         login_password: root
         state: present 
 
+    - name: "restart mysql"
+      shell: "sudo systemctl restart mysql"
