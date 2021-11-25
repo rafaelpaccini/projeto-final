@@ -22,7 +22,16 @@
         - mysql-server
         - python3-pycurl
         - python3-mysqldb
-    
+
+    - name: "Configura o wp-config com as senhas"
+      replace:
+        path: '/etc/mysql/mysql.conf.d/mysqld.cnf'
+        regexp: "{{ item.regex }}"
+        replace: "{{ item.value }}"
+      with_items:
+        - { regex: '127.0.0.1', value: '0.0.0.0' }
+      become: yes   
+
     - name: "Lavanta serviço do mysql"
       become: yes
       service:
@@ -45,4 +54,3 @@
         login_password: root
         state: present 
 
-   
