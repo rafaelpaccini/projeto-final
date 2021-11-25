@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd ./mamede-teste
 ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /var/lib/jenkins/treinamentoitau_mauricio2.pem)
 echo $ANSIBLE_OUT
 
