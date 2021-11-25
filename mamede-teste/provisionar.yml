@@ -25,9 +25,9 @@
     - name: "Aplicar hpa"
       shell: kubectl apply -f /root/k8s-deploy/7.5-hpa.yaml
 
-    - shell: "kubectl get pods | grep mysql"
-      register: ps
-    - debug:
-        msg: " '{{ ps.stdout_lines }}' "
+    # - shell: "kubectl get pods | grep mysql"
+    #   register: ps
+    # - debug:
+    #     msg: " '{{ ps.stdout_lines }}' "
 
 # ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key ~/Desktop/devops/treinamentoItau

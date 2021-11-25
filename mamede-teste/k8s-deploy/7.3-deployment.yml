@@ -37,7 +37,7 @@ spec:
             limits: # caso a aplicação precise de mais recurso, ele coloca este limite automático
               memory: "600Mi" # 800 MB
               cpu: "0.4"
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: pod-javadb

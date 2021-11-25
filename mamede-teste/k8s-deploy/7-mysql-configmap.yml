@@ -5,5 +5,5 @@ metadata:
 data:
   USER: root
   #DATABASE_URL: mysql://mysql:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UTC
-  DATABASE_URL: mysql://10.50.10.90:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC # caso esteja vinculando um clusterIP na mão
+  DATABASE_URL: mysql://10.50.10.90:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UTC # caso esteja vinculando um clusterIP na mão
         
