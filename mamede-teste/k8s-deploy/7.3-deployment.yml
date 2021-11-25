@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: container-pod-javadb
-          image: projetofinal/spring-web-youtube:latest
+          image: projetofinal/spring-web-youtube:v0.1.2
           env:
             - name: USER
               valueFrom:
