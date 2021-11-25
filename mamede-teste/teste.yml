@@ -1,0 +1,14 @@
+- hosts: 
+  -'{{ hosts }}'
+  become: true
+
+  tasks:
+    - name: "Roda: sudo apt-get update"
+      become: yes
+      apt:
+        upgrade: yes
+        update_cache: yes
+
+    - name: "Configura hostname jenkins"
+      shell: hostname projeto-jenkins && echo "projeto-jenkins" > /etc/hostname
+      become: yes
