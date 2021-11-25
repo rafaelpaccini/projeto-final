@@ -33,7 +33,7 @@
       become: yes
       mysql_user:
         name: root
-        host: localhost
+        host: "%"
         password: root
         priv: "*.*:ALL,GRANT"
         state: present

@@ -62,8 +62,8 @@ resource "aws_security_group" "acesso_sql_server" {
   ingress = [
     {
       description      = "Porta padrao acesso_sql_server"
-      from_port        = 1433
-      to_port          = 1433
+      from_port        = 3306
+      to_port          = 3306
       protocol         = "tcp"
       cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks = ["::/0"]

@@ -79,6 +79,17 @@ resource "aws_security_group" "acessos_masters" {
       self: null
     },
     {
+      description      = "Porta 3000"
+      from_port        = 30000
+      to_port          = 30000
+      protocol         = "tcp"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = []
+      prefix_list_ids = null,
+      security_groups: null,
+      self: null
+    },
+    {
       cidr_blocks      = []
       description      = "Libera acesso k8s_masters"
       from_port        = 0
