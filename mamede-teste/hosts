@@ -1,0 +1,4 @@
+[k8s-master-1]
+ec2-54-232-10-178.sa-east-1.compute.amazonaws.com
+[mysql-dev]
+10.50.10.59
