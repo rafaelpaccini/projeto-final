@@ -1,6 +1,8 @@
 #!/bin/bash
+VAR_1="$1"
+echo $VAR_1
 cd ./mamede-teste
-ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key /var/lib/jenkins/treinamentoitau_mauricio2.pem)
+ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml --extra-vars "hosts=$VAR_1" -u ubuntu --private-key /var/lib/jenkins/treinamentoitau_mauricio2.pem)
 echo $ANSIBLE_OUT
 
 ## Mac ##

@@ -1,2 +1,6 @@
-[k8s-master-1]
+[master-1]
 ec2-54-232-51-1.sa-east-1.compute.amazonaws.com
+[master-2]
+ec2-18-228-226-226.sa-east-1.compute.amazonaws.com
+[master-3]
+ec2-15-228-100-59.sa-east-1.compute.amazonaws.com

@@ -1,5 +1,5 @@
 - hosts: 
-  - k8s-master-1
+  - '{{ hosts }}'
   become: yes
   tasks:
     - name: "Upload k8s-deploy"
