@@ -43,7 +43,7 @@ Tecnologias que utilizamos para desenvolver o sistema:
 
 **Fork do projeto e clone para a máquina**
 
-- Crie um fork do projeto [grupo-one-mmaster](https://github.com/rafaelpaccini/projeto-final.git) e faça um clone para a máquina de desenvolvimento.
+- Crie um fork do projeto [projeto-final](https://github.com/rafaelpaccini/projeto-final.git) e faça um clone para a máquina de desenvolvimento.
 
 **Atualização das informações nos códigos**
 
