@@ -16,7 +16,7 @@ spec:
             - name: USER
               valueFrom:
                 configMapKeyRef:
-                  name: mysql-configmap
+                  name: configmap
                   key: USER
             - name: PASSWORD
               valueFrom:
