@@ -1,5 +1,5 @@
 <h3 align="center">
-  Programa de Desenvolvimento Itaú 2.0 - DevOps
+  Projeto Final - Programa de Desenvolvimento Itaú 2.0 - DevOps
 </h3>
 
 ## 👨🏻‍💻 Sobre o projeto
@@ -55,20 +55,7 @@ Edite o arquivo **"0-terraform/mainv2.tf"** com as configurações da instancia 
 Edite on arquivos **.sh**:
 - Alterar variável do shell CHAVESSH para o caminho de sua chave ssh privada;
 
-Edite o arquivo **jenkinsfile**:
-- Alterar URL do projeto do Git que está usando no estágio "Clone do Repositório";
-
-Agora, só basta criar uma esteira de deploy no Jenkins usando os passos descritos no arquivo "jenkinsfile".
-
-Depois da criação das máquinas, ainda é necessário que se provisione um servidor para uso como banco de dados. Assim, instalar o MySQL Server e criar o banco!
-
-```
-create database <NOME>;
-ALTER USER 'root'@'%' IDENTIFIED BY '<SENHA>';
-CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '<SENHA>';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
-FLUSH PRIVILEGES;
-```
+Depois da criação das máquinas, ainda é necessário que se provisione, por meio de um script terraform, um servidor para uso como banco de dados. Assim, utilizar o scpript ansible para instalar o MySQL Server e criar o banco!
 
 ## ⚙️ Aplicação
 A aplicação [spring-web-youtube](https://github.com/torneseumprogramador/spring-web-youtube/tree/deploy-docker) se trata de um sistema monolito simples onde contém uma área administrativa para administrar o CRUD de administradores(login, senha, cadastros).
