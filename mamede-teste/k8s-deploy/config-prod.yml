@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+data:
+  USER: root
+  #DATABASE_URL: mysql://mysql:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UTC
+  DATABASE_URL: mysql://10.50.10.35:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UTC # caso esteja vinculando um clusterIP na mão
+        

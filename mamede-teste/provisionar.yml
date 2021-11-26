@@ -8,7 +8,8 @@
         dest: "/root/"
     
     - name: "Aplicar configmap"
-      shell: kubectl apply -f /root/k8s-deploy/7-mysql-configmap.yml
+      shell: kubectl apply -f /root/configmap.yml
+    
 
     - name: "Aplicar secret"
       shell: kubectl apply -f /root/k8s-deploy/7.1-mysql-secret.yml
@@ -20,7 +21,7 @@
       shell: kubectl apply -f /root/k8s-deploy/7.3-deployment.yml
 
     - name: "Aplicar nodeport"
-      shell: kubectl apply -f /root/k8s-deploy/7.4-nodeport-javadb.yml
+      shell: kubectl apply -f /root/nodeport.yml
 
     - name: "Aplicar hpa"
       shell: kubectl apply -f /root/k8s-deploy/7.5-hpa.yaml

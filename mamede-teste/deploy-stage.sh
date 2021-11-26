@@ -1,4 +1,31 @@
 #!/bin/bash
+
+cat <<EOF > configmap.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+data:
+  USER: root
+  DATABASE_URL: mysql://10.50.10.41:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UT
+EOF
+
+cat <<EOF > nodeport.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeport-pod-javadb
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      nodePort: 30001 # 30000 ~ 32767
+  selector:
+    app: pod-javadb
+EOF
+
+sleep 15
+
 VAR_1="$1"
 echo $VAR_1
 cd ./mamede-teste
@@ -22,6 +49,7 @@ cat <<EOF > restore-dump-mysql.yml
       copy:
         src: "k8s-deploy/1.2-dump-mysql.sql"
         dest: "/root/"
+
     - name: "Create dabatase"
       shell: echo "create database SpringWebYoutubeTest;" 
     
