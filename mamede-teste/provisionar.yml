@@ -8,7 +8,7 @@
         dest: "/root/"
     
     - name: "Aplicar configmap"
-      shell: kubectl apply -f /root/configmap.yml
+      shell: kubectl apply -f /root/k8s-deploy/configmap.yml
     
 
     - name: "Aplicar secret"
@@ -21,7 +21,7 @@
       shell: kubectl apply -f /root/k8s-deploy/7.3-deployment.yml
 
     - name: "Aplicar nodeport"
-      shell: kubectl apply -f /root/nodeport.yml
+      shell: kubectl apply -f /root/k8s-deploy/nodeport.yml
 
     - name: "Aplicar hpa"
       shell: kubectl apply -f /root/k8s-deploy/7.5-hpa.yaml
