@@ -7,6 +7,9 @@
         src: "k8s-deploy"
         dest: "/root/"
     
+    - name: "export"
+      shell: sudo export KUBECONFIG=/etc/kubernetes/admin.conf
+      
     - name: "Aplicar configmap"
       shell: kubectl apply -f /root/k8s-deploy/configmap.yml
     
