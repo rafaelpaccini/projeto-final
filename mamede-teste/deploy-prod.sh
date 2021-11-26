@@ -1,5 +1,5 @@
 #!/bin/bash
-cat <<EOF > /mamede-teste/configmap.yml
+cat <<EOF > /mamede-teste/k8s-deploy/configmap.yml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -9,7 +9,7 @@ data:
   DATABASE_URL: mysql://10.50.10.41:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UT
 EOF
 
-cat <<EOF > /mamede-teste/nodeport.yml
+cat <<EOF >/mamede-teste/k8s-deploy/nodeport.yml
 apiVersion: v1
 kind: Service
 metadata:
@@ -37,7 +37,7 @@ echo $ANSIBLE_OUT
 # MYSQL_POD_NAME=$(echo $ANSIBLE_OUT | grep -oP "(mysql-.*? )" )
 
 echo "Esperando subir os pods ..."
-sleep 300
+sleep 60
 
 cat <<EOF > restore-dump-mysql.yml
 - hosts: 
