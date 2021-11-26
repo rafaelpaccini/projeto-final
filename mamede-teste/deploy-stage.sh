@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat <<EOF > /mamede-teste/k8s-deploy/configmap.yml
+cat <<EOF > mamede-teste/k8s-deploy/configmap.yml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -10,7 +10,7 @@ data:
   DATABASE_URL: mysql://10.50.10.41:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UT
 EOF
 
-cat <<EOF > /mamede-teste/k8s-deploy/nodeport.yml
+cat <<EOF > mamede-teste/k8s-deploy/nodeport.yml
 apiVersion: v1
 kind: Service
 metadata:
