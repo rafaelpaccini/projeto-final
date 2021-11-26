@@ -1,5 +1,5 @@
 #!/bin/bash
-cat <<EOF > configmap.yml
+cat <<EOF > /mamede-teste/configmap.yml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -9,7 +9,7 @@ data:
   DATABASE_URL: mysql://10.50.10.41:3306/SpringWebYoutube?useTimezone=true&serverTimezone=UT
 EOF
 
-cat <<EOF > nodeport.yml
+cat <<EOF > /mamede-teste/nodeport.yml
 apiVersion: v1
 kind: Service
 metadata:
